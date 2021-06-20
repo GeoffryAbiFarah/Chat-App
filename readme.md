@@ -10,7 +10,8 @@
 
 * Create a ".env" file and add to it the Cluster connection string, your ".env" file should look like this:
 
-    DB_URL=<YOUR CONNECTION STRING>
+    DB_URL=[YOUR CONNECTION STRING]
+    SECRET_KEY=[YOUR SECRET KEY FOR FLASK LOGIN]
 
 * Run the app using the following command:
     - on windows: python app.py

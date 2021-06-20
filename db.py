@@ -1,3 +1,4 @@
+from user import User
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash
 from dotenv import dotenv_values
@@ -16,4 +17,10 @@ def save_user(username, email, password):
         "password": generate_password_hash(password)
     })
 
-save_user("steph", "geoffry_abifarah@hotmail.com","test")
+def get_user(username):
+    user_data = users_collection.find_one({"_id": username})
+    if user_data:
+        return User(user_data["_id"], user_data["email"], user_data["password"])
+    else:
+        return None
+    
